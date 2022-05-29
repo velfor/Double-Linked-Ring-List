@@ -1,4 +1,5 @@
-// Zadacha_4.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// Zadacha_4.cpp : 
+//Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <iostream>
 using namespace std;
 struct  List
@@ -26,7 +27,7 @@ void addtohead(List*& head, List*& tail, char data)
     head = newNode;
     tail->next = head;
     head->prev = tail;
-    //в списке ровно 2 узла, не делаем цикл, т.к. он не сработает
+    //РІ СЃРїРёСЃРєРµ СЂРѕРІРЅРѕ 2 СѓР·Р»Р°, РЅРµ РґРµР»Р°РµРј С†РёРєР», С‚.Рє. РѕРЅ РЅРµ СЃСЂР°Р±РѕС‚Р°РµС‚
     if (head != tail && head->next == tail) {
         tail->pos = 2;
     }
@@ -41,7 +42,7 @@ void addtohead(List*& head, List*& tail, char data)
 }
 void show(List* head, List* tail)
 {
-    if (head == nullptr) cout << "Список пуст" << endl;
+    if (head == nullptr) cout << "РЎРїРёСЃРѕРє РїСѓСЃС‚" << endl;
     else
     {
         List* cur = head;
@@ -56,7 +57,7 @@ void show(List* head, List* tail)
 }
 void delnode(List*& head, List*& tail, int pos) {
     List* temp;
-    //Удаляем голову
+    //РЈРґР°Р»СЏРµРј РіРѕР»РѕРІСѓ
     if (pos == head->pos) {
         if (head == tail) {
             delete head;
@@ -69,7 +70,7 @@ void delnode(List*& head, List*& tail, int pos) {
             delete temp;
         }
     }
-    //Удаляем хвост
+    //РЈРґР°Р»СЏРµРј С…РІРѕСЃС‚
     else 
         if (pos == tail->pos)
         {
@@ -78,7 +79,7 @@ void delnode(List*& head, List*& tail, int pos) {
             tail->next = head;
             delete temp;
         }
-    //удаляем узел между головой и хвостом
+    //СѓРґР°Р»СЏРµРј СѓР·РµР» РјРµР¶РґСѓ РіРѕР»РѕРІРѕР№ Рё С…РІРѕСЃС‚РѕРј
         else
         {
             List* cur = head;
@@ -103,9 +104,9 @@ void deletelist(List*& head, List*& tail) {
     head = tail = nullptr;
 }
 void del(List*& head, List*& tail, int k) {
-    //удаляем весь список
+    //СѓРґР°Р»СЏРµРј РІРµСЃСЊ СЃРїРёСЃРѕРє
     if (k == 1) deletelist(head, tail);
-    //удаляем избранные позиции
+    //СѓРґР°Р»СЏРµРј РёР·Р±СЂР°РЅРЅС‹Рµ РїРѕР·РёС†РёРё
     else {
         List* cur = head;
         while (cur != tail) {
@@ -137,7 +138,7 @@ int main()
     int i = 0;
 
     List* head = nullptr; List* tail = nullptr;
-    cout << "Введите число узлов" << endl;
+    cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ СѓР·Р»РѕРІ" << endl;
     cin >> count;
     for (int i = 0; i < count; i++) {
         char data;
@@ -146,7 +147,7 @@ int main()
     }
     show(head, tail);
     int k;
-    cout << "Введите какие позиции удалить" << endl;
+    cout << "Р’РІРµРґРёС‚Рµ РєР°РєРёРµ РїРѕР·РёС†РёРё СѓРґР°Р»РёС‚СЊ" << endl;
     cin >> k;
     del(head, tail, k);
     show(head, tail);
